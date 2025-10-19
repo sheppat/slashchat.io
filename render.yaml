@@ -1,0 +1,31 @@
+# Render Build Configuration
+
+## Build Command:
+```bash
+npm install
+```
+
+## Start Command:
+```bash
+npm start
+```
+
+## Root Directory:
+```
+/
+```
+
+## Environment Variables:
+No additional environment variables needed - Firebase config is already set in firebase-config.js
+
+## Static Site Settings:
+- **Build Command:** `npm install`
+- **Start Command:** `npm start`
+- **Root Directory:** `/` (leave empty)
+- **Environment:** Node.js
+
+## Notes:
+- This is a static site served via http-server
+- Firebase configuration is already set up
+- No build process needed - just serving static files
+- Port is automatically set by Render via $PORT environment variable
