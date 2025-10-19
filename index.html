@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlashChat - The Chaotic Group Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+</head>
+<body>
+    <!-- Login/Signup Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div class="auth-container">
+                <h1 class="logo">⚡ SlashChat</h1>
+                <p class="tagline">The most chaotic group chat ever</p>
+                
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <form id="loginForm" class="auth-form active">
+                    <input type="text" id="loginUsername" placeholder="Username" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit" class="auth-btn">Enter Chaos</button>
+                </form>
+                
+                <form id="signupForm" class="auth-form">
+                    <input type="text" id="signupUsername" placeholder="Choose Username" required>
+                    <input type="password" id="signupPassword" placeholder="Password" required>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                    <button type="submit" class="auth-btn">Join the Madness</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Chat Interface -->
+    <div id="chatContainer" class="chat-container hidden">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-left">
+                <h1 class="chat-title">⚡ SlashChat</h1>
+                <div class="user-info">
+                    <span id="currentUsername" class="username"></span>
+                    <div class="level-info">
+                        <span class="level">Level <span id="userLevel">1</span></span>
+                        <div class="xp-bar">
+                            <div id="xpProgress" class="xp-fill"></div>
+                        </div>
+                        <span id="userXP">0</span> XP
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="online-users">
+                    <span class="online-count">👥 <span id="onlineCount">0</span> online</span>
+                    <div id="onlineList" class="online-list"></div>
+                </div>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <!-- Chat Messages -->
+        <div id="chatMessages" class="chat-messages">
+            <div class="welcome-message">
+                <h2>Welcome to SlashChat!</h2>
+                <p>Type anything and watch the chaos unfold...</p>
+            </div>
+        </div>
+
+        <!-- Message Input -->
+        <div class="message-input-container">
+            <div class="input-wrapper">
+                <input type="text" id="messageInput" placeholder="Type your chaos..." maxlength="500">
+                <button id="sendBtn" class="send-btn">⚡</button>
+            </div>
+            <div class="input-info">
+                <span id="charCount">0/500</span>
+                <span class="xp-gain">+5 XP per message</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification hidden">
+        <span id="notificationText"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
